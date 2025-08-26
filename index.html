@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <style>
         /* Menggunakan font Inter sebagai default */
         body {
@@ -33,26 +36,32 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div>
                 <a href="#" class="text-xl font-bold text-primary tracking-tight">
-                    Bima Habib N.
+                Bima Habib N.
                 </a>
-                <p class="text-xs text-slate-500 tracking-wide">Engineering Safety, Empowering Excellence</p>
+                <p class="text-xs text-slate-500 tracking-wide">Engineering Safety, Empowering Excellence.</p>
             </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#journey" class="text-gray-600 hover:text-primary transition duration-300">Perjalanan</a>
-                <a href="#skills" class="text-gray-600 hover:text-primary transition duration-300">Keahlian</a>
-                <a href="#projects" class="text-gray-600 hover:text-primary transition duration-300">Projek</a>
+
+            <div class="flex items-center space-x-8">
+                <div class="hidden md:flex space-x-8">
+                    <a href="#journey" class="text-gray-600 hover:text-primary transition duration-300">Perjalanan</a>
+                    <a href="#skills" class="text-gray-600 hover:text-primary transition duration-300">Keahlian</a>
+                    <a href="#projects" class="text-gray-600 hover:text-primary transition duration-300">Sertifikasi</a>
+                </div>
+                <a href="#contact" class="bg-primary text-white px-5 py-1.5 rounded-full hover:bg-primary-dark transition duration-300 shadow">Contact</a>
             </div>
-            <a href="#contact" class="bg-primary text-white px-5 py-2 rounded-full hover:bg-primary-dark transition duration-300 shadow">Hubungi Saya</a>
         </nav>
     </header>
 
     <main>
         <section class="bg-white">
-            <div class="container mx-auto px-6 py-20 md:py-28 flex flex-col md:flex-row items-center text-center md:text-left">
+            <div class="container mx-auto px-6 py-10 md:py-14 flex flex-col md:flex-row items-center text-center md:text-left">
                 <div class="md:w-1/2 lg:w-3/5 mb-10 md:mb-0">
-                    <span class="font-semibold text-primary">Safety, Health and Environment.</span>
+                    
+                    <div class="flex flex-col items-center md:items-start">
+                        <img src="logo.png" alt="K3" class="h-20 mb-2"> <span class="font-semibold text-primary">Safety, Health and Environment.</span>
+                    </div>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mt-2 mb-2 leading-tight">Bima Habib Nugraha</h1>
-                    <p class="text-lg text-gray-600 max-w-xl mx-auto md:mx-0">Spesialis K3 bersertifikasi AK3U KEMNAKER dengan dedikasi tinggi untuk membangun budaya kerja yang aman, patuh, dan produktif.</p>
+                    <p class="text-lg text-gray-600 max-w-xl mx-auto md:mx-0">Sarjana Teknik dengan sertifikasi Calon Ahli K3 Umum KEMENAKER. Memiliki pemahaman yang baik mengenai standar ISO 9001, ISO 14001, dan ISO 45001. Kompeten dalam menyusun HIRAC, Job Safety Analysis (JSA), Permit to Work, dan lainnya. Mencari peran yang dinamis pada bidang K3 dan berkontribusi pada kesuksesan bisnis perusahaan.</p>
                     <div class="mt-8 flex justify-center md:justify-start space-x-4">
                         <a href="#projects" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-300 transition duration-300">Lihat Projek</a>
                         <a href="https://www.linkedin.com/in/bimahabibnugraha" target="_blank" class="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-primary-dark transition duration-300 shadow-lg">LinkedIn</a>
@@ -66,7 +75,46 @@
             </div>
         </section>
 
-        <section id="journey" class="py-20">
+        <section id="skills" class="py-20">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900">Keahlian Utama</h2>
+                    <p class="text-lg text-gray-600 mt-2">Kompetensi yang saya kuasai.</p>
+                    <div class="mt-4 w-24 h-1 bg-primary mx-auto rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-semibold text-lg">SMK3</p>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-semibold text-lg">HIRAC</p>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-semibold text-lg">JSA</p>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-semibold text-lg">HSE Plan</p>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-semibold text-lg">Work Permit</p>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-semibold text-lg">CSMS</p>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-semibold text-lg">LOTO</p>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-semibold text-lg">Basic Fire Fighting</p>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <p class="font-semibold text-lg">Basic First Aids</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <section id="journey" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-4xl font-bold text-gray-900">Perjalanan Profesional</h2>
@@ -81,10 +129,10 @@
                         <div class="md:flex items-center">
                             <div class="md:w-1/2 md:pr-8">
                                 <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-primary">
-                                    <h3 class="text-xl font-bold text-gray-900">Safety Officer</h3>
-                                    <p class="text-primary font-semibold mt-1">PT. Contoh Perusahaan Tbk</p>
-                                    <p class="text-sm text-gray-500 mt-1">Januari 2020 - Sekarang</p>
-                                    <p class="text-gray-600 mt-3">Mengimplementasikan program K3, melakukan inspeksi rutin, dan memastikan kepatuhan terhadap regulasi keselamatan kerja untuk menekan angka kecelakaan.</p>
+                                    <h3 class="text-xl font-bold text-gray-900">Internship</h3>
+                                    <p class="text-primary font-semibold mt-1">Pusat Sumber Daya Mineral, Batubara dan Panas Bumi (KESDM)</p>
+                                    <p class="text-sm text-gray-500 mt-1">Februari 2020 - April 2020</p>
+                                    <p class="text-gray-600 mt-3">Melakukan analisis dan interpretasi terpadu data geofisika (Magnetotellurik & Gravitasi), geokimia, dan geologi untuk mengidentifikasi serta memetakan area prospek panas bumi di Lapangan Maritaing.</p>
                                 </div>
                             </div>
                             <div class="md:w-1/2 md:pl-8"></div>
@@ -96,71 +144,231 @@
                         <div class="md:flex items-center flex-row-reverse">
                             <div class="md:w-1/2 md:pl-8">
                                 <div class="bg-white p-6 rounded-lg shadow-lg border-r-4 border-primary md:text-right">
-                                    <h3 class="text-xl font-bold text-gray-900">Freelance Web Developer</h3>
-                                    <p class="text-primary font-semibold mt-1">Projek Klien</p>
-                                    <p class="text-sm text-gray-500 mt-1">Juni 2019 - Sekarang</p>
-                                    <p class="text-gray-600 mt-3">Membangun berbagai jenis website, mulai dari company profile hingga toko online sederhana menggunakan teknologi modern seperti React dan Tailwind CSS.</p>
+                                    <h3 class="text-xl font-bold text-gray-900">Graduate Photographer</h3>
+                                    <p class="text-primary font-semibold mt-1">Freelancer</p>
+                                    <p class="text-sm text-gray-500 mt-1">Januari 2022 - Mei 2024</p>
+                                    <p class="text-gray-600 mt-3">Freelancer untuk jasa foto outdoor wisudawan</p>
                                 </div>
                             </div>
                             <div class="md:w-1/2 md:pr-8"></div>
                         </div>
                         <div class="absolute left-1/2 top-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2 border-4 border-white"></div>
                     </div>
+                    
+                    <div class="relative mb-12">
+                        <div class="md:flex items-center">
+                            <div class="md:w-1/2 md:pr-8">
+                                <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-primary">
+                                    <h3 class="text-xl font-bold text-gray-900">Digital Content Creator</h3>
+                                    <p class="text-primary font-semibold mt-1">WaHaHa Group</p>
+                                    <p class="text-sm text-gray-500 mt-1">Juni 2024 - Mei 2025</p>
+                                    <p class="text-gray-600 mt-3">Mengelola seluruh konten media sosial, mulai dari pembuatan konsep kreatif (desain grafis, copywriting, foto/video) hingga optimalisasi berdasarkan analisis data performa untuk mencapai target engagement rate bulanan 5%.</p>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-8"></div>
+                        </div>
+                        <div class="absolute left-1/2 top-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2 border-4 border-white"></div>
+                    </div>
+
                 </div>
             </div>
-        </section>
-
-        <section id="skills" class="py-20 bg-white">
-             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-gray-900">Keahlian Utama</h2>
-                    <p class="text-lg text-gray-600 mt-2">Teknologi dan kompetensi yang saya kuasai.</p>
-                    <div class="mt-4 w-24 h-1 bg-primary mx-auto rounded-full"></div>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
-                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                        <p class="font-semibold text-lg">HTML & CSS</p>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                        <p class="font-semibold text-lg">JavaScript</p>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                        <p class="font-semibold text-lg">Tailwind CSS</p>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                        <p class="font-semibold text-lg">React.js</p>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                        <p class="font-semibold text-lg">Manajemen K3</p>
-                    </div>
-                </div>
-             </div>
         </section>
 
         <section id="projects" class="py-20">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-gray-900">Projek Pilihan</h2>
-                    <p class="text-lg text-gray-600 mt-2">Beberapa karya yang pernah saya buat.</p>
+                    <h2 class="text-4xl font-bold text-gray-900">Sertifikasi dan Pelatihan</h2>
+                    <p class="text-lg text-gray-600 mt-2">Beberapa pelatihan untuk menunjang kompetensi saya.</p>
                     <div class="mt-4 w-24 h-1 bg-primary mx-auto rounded-full"></div>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
-                        <img src="https://placehold.co/600x400/0084c8/FFFFFF?text=Projek+1" alt="Gambar Projek 1" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="swiper h-48 relative">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-ak3u-1.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-ak3u-2.jpg" alt="Gambar Projek 2" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-ak3u-3.jpg" alt="Gambar Projek 3" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-ak3u-4.jpg" alt="Gambar Projek 3" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-ak3u-5.jpg" alt="Gambar Projek 3" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-ak3u-6.jpg" alt="Gambar Projek 3" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-ak3u-7.jpg" alt="Gambar Projek 3" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev absolute left-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-button-next absolute right-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Website Company Profile</h3>
-                            <p class="text-gray-600 mb-4">Mendesain dan mengembangkan website profil perusahaan manufaktur.</p>
+                            <h3 class="text-xl font-bold mb-2">Pelatihan Ahli K3 Umum (PJK3 Mutiara Mutu Sertifikasi)</h3>
+                            <p class="text-gray-600 mb-4">Pelatihan yang berlangsung 12 hari tersebut menambah kompetensi saya sebagai Calon Ahli K3 Umum.</p>
+                            <a href="https://drive.google.com/file/d/1XojPuJT5ZB5VyoqwSnUXPyr-Zh3uJYCH/view?usp=sharing" target="_blank" class="font-semibold text-primary hover:underline">Lihat Detail &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <div class="swiper h-48 relative">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-k3tambang-1.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-k3tambang-2.jpg" alt="Gambar Projek 2" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-k3tambang-3.jpg" alt="Gambar Projek 3" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev absolute left-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-button-next absolute right-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">K3 Tambang</h3>
+                            <p class="text-gray-600 mb-4">Bootcamp tentang K3 Tambang yang telah saya ikuti mengulas pentingnya Keselamatan dan Kesehatan Kerja (K3) di pertambangan, termasuk data kecelakaan, regulasi, tanggung jawab personel, jenis kecelakaan, serta pendekatan dan metode untuk mencapai tujuan K3 di sektor pertambangan.</p>
                             <a href="#" class="font-semibold text-primary hover:underline">Lihat Detail &rarr;</a>
                         </div>
                     </div>
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
-                        <img src="https://placehold.co/600x400/334155/FFFFFF?text=Projek+2" alt="Gambar Projek 2" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="swiper h-48 relative">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-k3migas-1.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-k3migas-2.jpg" alt="Gambar Projek 2" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-k3migas-3.jpg" alt="Gambar Projek 3" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev absolute left-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-button-next absolute right-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Aplikasi Audit K3</h3>
-                            <p class="text-gray-600 mb-4">Prototipe aplikasi berbasis web untuk mempermudah proses audit K3.</p>
+                            <h3 class="text-xl font-bold mb-2">K3 Migas</h3>
+                            <p class="text-gray-600 mb-4">Bootcamp tentang K3 Migas yang telah saya ikuti membahas secara komprehensif mengenai perundangan, implementasi, identifikasi bahaya, penanggulangan keadaan darurat, dan pengelolaan Keselamatan dan Kesehatan Kerja (K3) di industri migas.</p>
                             <a href="#" class="font-semibold text-primary hover:underline">Lihat Detail &rarr;</a>
                         </div>
                     </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <div class="swiper h-48 relative">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-iso-1.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-iso-2.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-iso-3.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-iso-4.jpg" alt="Gambar Projek 2" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev absolute left-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-button-next absolute right-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">ISO Series (9001, 14001, 45001)</h3>
+                            <p class="text-gray-600 mb-4">Bootcamp ISO Series yang telah saya ikuti menjelaskan sejarah, konsep dasar, persyaratan, prinsip-prinsip, implementasi, dan manfaat standar ISO 9001:2015, serta keterkaitannya dengan ISO 14001:2015 dan ISO 45001:2018 dalam Sistem Manajemen Terintegrasi.</p>
+                            <a href="#" class="font-semibold text-primary hover:underline">Lihat Detail &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <div class="swiper h-48 relative">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-dokumenk3-1.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-dokumenk3-2.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-dokumenk3-3.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-dokumenk3-4.jpg" alt="Gambar Projek 2" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-dokumenk3-5.jpg" alt="Gambar Projek 3" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev absolute left-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-button-next absolute right-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Dokumen K3</h3>
+                            <p class="text-gray-600 mb-4">Bootcamp Dokumen K3 membahas secara mendalam tentang Identifikasi Bahaya, Penilaian, Pengendalian Risiko (IBPPR) serta Analisis Keselamatan Kerja (JSA), Permit to Work, HSE Plan, LOTO, dan CSMS.</p>
+                            <a href="#" class="font-semibold text-primary hover:underline">Lihat Detail &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <div class="swiper h-48 relative">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-environment-1.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-environment-2.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-environment-3.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev absolute left-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-button-next absolute right-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Dasar Environment (UKL/UPL, AMDAL, B3)</h3>
+                            <p class="text-gray-600 mb-4">Bootcamp Dasar Environment membahas beberapa aspek terkait pengelolaan lingkungan, terutama Analisis Mengenai Dampak Lingkungan (AMDAL), Upaya Pengelolaan Lingkungan Hidup dan Upaya Pemantauan Lingkungan Hidup (UKL-UPL), serta pengelolaan Limbah Bahan Berbahaya dan Beracun (B3).</p>
+                            <a href="#" class="font-semibold text-primary hover:underline">Lihat Detail &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <div class="swiper h-48 relative">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-bff-1.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-bff-2.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-bff-3.jpg" alt="Gambar Projek 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="image/pelatihan-bfa-1.jpg" alt="Gambar Projek 3" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev absolute left-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-button-next absolute right-2 top-1/2 -translate-y-1/2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer z-10"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Basic Fire Fighting &  Basic First Aids</h3>
+                            <p class="text-gray-600 mb-4">Basic Fire Fighting : Pelatihan ini memberikan keterampilan untuk mengenali jenis api dan memadamkannya secara efektif menggunakan APAR sebelum membesar.</p>
+                            <p class="text-gray-600 mb-4">Basic First Aids: Pelatihan ini mengajarkan cara memberikan pertolongan medis awal untuk menyelamatkan nyawa dan mencegah cedera lebih parah hingga bantuan profesional tiba.</p>
+                            <a href="https://drive.google.com/file/d/1j09yU8VkflTdx84l1wVufWD3buIJYykf/view?usp=sharing" target="_blank" class="font-semibold text-primary hover:underline">Lihat Detail &rarr;</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -169,7 +377,7 @@
             <div class="container mx-auto px-6">
                 <div class="max-w-2xl mx-auto text-center">
                     <h2 class="text-4xl font-bold text-gray-900">Hubungi Saya</h2>
-                    <p class="text-lg text-gray-600 mt-2 mb-8">Mari berdiskusi tentang projek Anda atau peluang kolaborasi lainnya.</p>
+                    <p class="text-lg text-gray-600 mt-2 mb-8">Mari berdiskusi tentang projek atau peluang kolaborasi lainnya.</p>
                     
                     <div class="bg-gray-50 p-8 rounded-lg shadow-md border">
                         <form id="whatsapp-form">
@@ -177,7 +385,7 @@
                                 <label for="message" class="block text-left text-gray-700 font-semibold mb-2">Pesan Anda</label>
                                 <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-primary text-white text-lg font-bold py-4 px-6 rounded-lg hover:bg-primary-dark transition duration-300 shadow-lg">
+                            <button type="submit" class="w-full bg-primary text-white text-lg font-bold py-3 px-6 rounded-lg hover:bg-primary-dark transition duration-300 shadow-lg">
                                 Kirim via WhatsApp
                             </button>
                         </form>
@@ -201,6 +409,7 @@
                 </a>
             </div>
             <p class="text-gray-400">&copy; <span id="year"></span> BIMA HABIB NUGRAHA. All Rights Reserved.</p>
+            <p class="text-gray-400">v1.0</p>
         </div>
     </footer>
 
@@ -230,6 +439,45 @@
             window.open(whatsappURL, '_blank');
         });
     </script>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Mengaktifkan loop tak terbatas
+            loop: true,
+
+            // Mengaktifkan autoplay
+            autoplay: {
+                delay: 2500, // Jeda 2.5 detik antar slide
+                disableOnInteraction: false, // Autoplay tidak berhenti setelah interaksi user
+            },
+
+            // Konfigurasi Pagination (titik-titik)
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+
+            // Konfigurasi Tombol Navigasi
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+
+<style>
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 1.25rem; /* Ukuran ikon panah */
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 8px 12px;
+        border-radius: 50%;
+    }
+    .swiper-pagination-bullet-active {
+        background-color: white !important; /* Warna titik pagination yang aktif */
+    }
+</style>
 
 </body>
 </html>
