@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter Generator - Mobile Optimized</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Ensure everything is visible */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        /* Make sure output is always visible */
+        #outSubject, #outBody {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            min-height: 50px !important;
+            background-color: #ffffff !important;
+        }
+
+        /* Better text wrapping */
+        #outSubject, #outBody {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        /* Bold text styling */
+        #outSubject strong, #outBody strong {
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Card styling */
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Input styling */
+        select, input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        /* Button styling */
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: transform 0.2s;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .copy-btn {
+            background: #10b981;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Labels */
+        label {
+            display: block;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Output boxes */
+        .output-box {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            min-height: 60px;
+            margin-top: 0.5rem;
+        }
+
+        /* Toast notification */
+        #toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1f2937;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 1000;
+        }
+
+        #toast.show {
+            display: block;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateX(-50%) translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="card">
+        <h1 style="font-size: 1.5rem; font-weight: 700; color: #1f2937; margin-bottom: 0.5rem;">
+            📧 Cover Letter Generator
+        </h1>
+        <p style="color: #6b7280; font-size: 0.875rem;">
+            Buat email lamaran profesional dengan mudah
+        </p>
+    </div>
+
+    <!-- Form Section -->
+    <div class="card">
+        <h2 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-bottom: 1rem;">
+            📝 Form Input
+        </h2>
+
+        <div style="margin-bottom: 1rem;">
+            <label for="inpLang">Template:</label>
+            <select id="inpLang">
+                <option value="EMAIL_GEO">📧 Email Geofisika ID</option>
+                <option value="EMAIL_GEO_EN">📧 Email Geofisika EN</option>
+                <option value="EMAIL_HSE">📧 Email HSE ID</option>
+                <option value="EMAIL_HSE_EN">📧 Email HSE EN</option>
+                <option value="EMAIL_MT">📧 Email MT ALL</option>
+                <option value="EMAIL_MT_GEO">📧 Email MT Geo</option>
+                <option value="EMAIL_CREATIVE">📧 Email Creative ID</option>
+                <option value="EMAIL_UMUM">📧 Email Umum ID</option>
+                <option value="JOBSTREET">💼 Jobstreet Indonesia</option>
+                <option value="EN">🌐 English</option>
+            </select>
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+            <label for="inpCompany">Nama Perusahaan:</label>
+            <input type="text" id="inpCompany" placeholder="PT. Example Indonesia">
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+            <label for="inpPos">Posisi:</label>
+            <input type="text" id="inpPos" placeholder="Geophysicist / HSE Officer">
+        </div>
+
+        <button onclick="generateEmail()">🚀 Generate</button>
+    </div>
+
+    <!-- Output Section - Subject -->
+    <div class="card">
+        <h2 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-bottom: 1rem;">
+            📌 Subject Line
+        </h2>
+        <div id="outSubject" class="output-box" style="font-weight: 600; color: #1f2937;">
+            No Content
+        </div>
+        <button class="copy-btn" onclick="copySubject()">📋 Copy Subject</button>
+    </div>
+
+    <!-- Output Section - Body -->
+    <div class="card">
+        <h2 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-bottom: 1rem;">
+            📄 Email Body
+        </h2>
+        <div id="outBody" class="output-box" style="color: #374151; line-height: 1.8; min-height: 300px;">
+            No Content
+        </div>
+        <button class="copy-btn" onclick="copyBody()">📋 Copy Body</button>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast">✓ Copied to clipboard!</div>
+
+    <!-- Data Pelamar -->
+    <script src="data.js"></script>
+
+    <!-- Load all email templates -->
+    <script src="templates/email_geo.js"></script>
+    <script src="templates/email_geo_en.js"></script>
+    <script src="templates/email_hse.js"></script>
+    <script src="templates/email_hse_en.js"></script>
+    <script src="templates/email_mt.js"></script>
+    <script src="templates/email_mt_geo.js"></script>
+    <script src="templates/email_creative.js"></script>
+    <script src="templates/email_umum.js"></script>
+    <script src="templates/jobstreet.js"></script>
+    <script src="templates/email_en.js"></script>
+
+    <!-- Combine templates into TEMPLATES object -->
+    <script src="templates.js"></script>
+
+    <!-- Main Script -->
+    <script>
+        // Function to convert markdown ** to HTML <strong>
+        function convertMarkdownToHtml(text) {
+            // Replace **text** with <strong>text</strong>
+            return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        }
+
+        function generateEmail() {
+            // Get input values
+            const lang = document.getElementById('inpLang').value;
+            const company = document.getElementById('inpCompany').value.trim();
+            const position = document.getElementById('inpPos').value.trim();
+
+            // Validation
+            if (!company || !position) {
+                alert('⚠️ Mohon isi Nama Perusahaan dan Posisi!');
+                return;
+            }
+
+            // Get template
+            const template = TEMPLATES[lang];
+            if (!template) {
+                alert('❌ Template tidak ditemukan!');
+                return;
+            }
+
+            // Replace placeholders
+            let subject = template.subject
+                .replace(/{{NAMA}}/g, DATA_PELAMAR.nama)
+                .replace(/{{COMPANY}}/g, company)
+                .replace(/{{POSITION}}/g, position)
+                .replace(/{{KONTAK}}/g, DATA_PELAMAR.kontak_singkat);
+
+            let body = template.body
+                .replace(/{{NAMA}}/g, DATA_PELAMAR.nama)
+                .replace(/{{COMPANY}}/g, company)
+                .replace(/{{POSITION}}/g, position)
+                .replace(/{{KONTAK}}/g, DATA_PELAMAR.kontak_singkat);
+
+            // Convert markdown to HTML
+            subject = convertMarkdownToHtml(subject);
+            body = convertMarkdownToHtml(body);
+
+            // Display results using innerHTML to render HTML tags
+            document.getElementById('outSubject').innerHTML = subject;
+            document.getElementById('outBody').innerHTML = body;
+
+            // Scroll to results
+            document.getElementById('outSubject').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Show success notification
+            showToast('✓ Email berhasil di-generate!');
+        }
+
+        function copySubject() {
+            const element = document.getElementById('outSubject');
+            // Get plain text without HTML tags
+            const text = element.innerText || element.textContent;
+            copyToClipboard(text);
+        }
+
+        function copyBody() {
+            const element = document.getElementById('outBody');
+            // Get plain text without HTML tags
+            const text = element.innerText || element.textContent;
+            copyToClipboard(text);
+        }
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast('✓ Copied to clipboard!');
+                }).catch(() => {
+                    fallbackCopy(text);
+                });
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast('✓ Copied to clipboard!');
+            } catch (err) {
+                alert('Copy failed. Please copy manually.');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
