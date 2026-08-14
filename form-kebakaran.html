@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Info Kebakaran</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: auto;
+            border-top: 5px solid #d32f2f; /* Warna merah identik dengan darurat/kebakaran */
+        }
+        h2 {
+            text-align: center;
+            color: #d32f2f;
+            margin-top: 0;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px; /* Mencegah auto-zoom di iPhone/Android */
+        }
+        button {
+            margin-top: 25px;
+            padding: 15px;
+            width: 100%;
+            background-color: #25D366; /* Warna khas WhatsApp */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        button:active {
+            background-color: #1ebe5d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Form Info Kebakaran</h2>
+        
+        <label for="divisi">Divisi:</label>
+        <input type="text" id="divisi" placeholder="Contoh: Divisi 1 / QA">
+
+        <label for="blok">Blok:</label>
+        <input type="text" id="blok" placeholder="Contoh: Blok A3">
+
+        <label for="situasi">Situasi:</label>
+        <textarea id="situasi" rows="3" placeholder="Contoh: Api mulai membesar di area ilalang..."></textarea>
+
+        <label for="kondisi">Kondisi Sekitar:</label>
+        <textarea id="kondisi" rows="3" placeholder="Contoh: Angin kencang arah utara, dekat dengan mess pekerja..."></textarea>
+
+        <button onclick="kirimKeWhatsApp()">Kirim via WhatsApp</button>
+    </div>
+
+    <script>
+        function kirimKeWhatsApp() {
+            // Mengambil nilai dari form
+            const divisi = document.getElementById('divisi').value;
+            const blok = document.getElementById('blok').value;
+            const situasi = document.getElementById('situasi').value;
+            const kondisi = document.getElementById('kondisi').value;
+
+            // Memvalidasi agar form tidak kosong (opsional, bisa dihapus jika tidak perlu)
+            if(!divisi || !blok || !situasi || !kondisi) {
+                alert("Mohon lengkapi semua data sebelum mengirim laporan.");
+                return;
+            }
+
+            // Menyusun format pesan
+            const pesan = `*Info kebakaran*\nDivisi: ${divisi}\nBlok: ${blok}\nSituasi: ${situasi}\nKondisi Sekitar: ${kondisi}`;
+
+            // Mengubah format teks menjadi URL Encoded agar terbaca oleh WhatsApp
+            const urlEncodedPesan = encodeURIComponent(pesan);
+
+            // Membuat link WhatsApp (akan membuka aplikasi WA di HP)
+            const waLink = `https://wa.me/?text=${urlEncodedPesan}`;
+
+            // Membuka link
+            window.location.href = waLink;
+        }
+    </script>
+
+</body>
+</html>
