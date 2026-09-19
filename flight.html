@@ -221,7 +221,7 @@
 
     // Default presets for sample output matching user example
     const defaultData = [
-      { blok: '', jam: '' },
+      { blok: '', jamMulai: '', jamSelesai: '' }
 //      { blok: 'AA 01/02, AA 02/02', jam: '10.00 - 12.00' },
 //      { blok: 'AA 01/03', jam: '12.00 - 13.00' }
     ];
@@ -254,7 +254,7 @@
       updateSalamButtons('Pagi');
 
       // Populate Default Sample Blocks
-      defaultData.forEach(item => addBlockRow(item.blok, item.jam));
+      defaultData.forEach(item => addBlockRow(item.blok, item.jamMulai, item.jamSelesai));
 
       // Attach Listeners
       setupEventListeners();
@@ -294,7 +294,7 @@
 
       // Add Block Button
       addBlockBtn.addEventListener('click', () => {
-        addBlockRow('', '');
+        addBlockRow('', '', '')
         updatePreview();
       });
 
@@ -321,14 +321,14 @@
       });
     }
 
-    function addBlockRow(blokVal = '', jamVal = '') {
+    function addBlockRow(blokVal = '', jamMulaiVal = '', jamSelesaiVal = '') {
       blockCounter++;
       const rowId = `block-row-${blockCounter}`;
 
       const rowElement = document.createElement('div');
       rowElement.id = rowId;
       rowElement.className = 'block-row p-3 rounded-xl bg-slate-900/90 border border-slate-700/60 space-y-2 relative group transition-all duration-200 hover:border-slate-600';
-      
+  
       rowElement.innerHTML = `
         <div class="flex items-center justify-between gap-2">
           <span class="text-[11px] font-semibold text-slate-400 flex items-center gap-1">
@@ -343,26 +343,28 @@
           <div class="sm:col-span-6">
             <input type="text" placeholder="Contoh: AA 01/01" value="${blokVal}" class="input-blok w-full bg-slate-800/80 border border-slate-700/80 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 focus:ring-1 focus:ring-brand-500 focus:outline-none">
           </div>
-          <!-- Jam Operasional -->
-          <div class="sm:col-span-6">
-            <input type="text" placeholder="Jam Ops (08.00 - 10.00)" value="${jamVal}" class="input-jam w-full bg-slate-800/80 border border-slate-700/80 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 focus:ring-1 focus:ring-brand-500 focus:outline-none">
+          <!-- Jam Operasional (Mulai & Selesai) -->
+          <div class="sm:col-span-6 flex items-center gap-2">
+            <input type="text" placeholder="Mulai (08.00)" value="${jamMulaiVal}" class="input-jam-mulai w-full bg-slate-800/80 border border-slate-700/80 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 focus:ring-1 focus:ring-brand-500 focus:outline-none">
+            <span class="text-slate-400 text-xs font-bold">-</span>
+            <input type="text" placeholder="Selesai (10.00)" value="${jamSelesaiVal}" class="input-jam-selesai w-full bg-slate-800/80 border border-slate-700/80 rounded-lg px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 focus:ring-1 focus:ring-brand-500 focus:outline-none">
           </div>
         </div>
-      `;
+  `;
 
-      blockList.appendChild(rowElement);
+  blockList.appendChild(rowElement);
 
-      // Attach internal listeners for dynamic row inputs
-      const inputs = rowElement.querySelectorAll('input');
-      inputs.forEach(input => input.addEventListener('input', updatePreview));
+  // Attach internal listeners for dynamic row inputs
+  const inputs = rowElement.querySelectorAll('input');
+  inputs.forEach(input => input.addEventListener('input', updatePreview));
 
-      // Remove row handler
-      const removeBtn = rowElement.querySelector('.remove-row-btn');
-      removeBtn.addEventListener('click', () => {
-        rowElement.remove();
-        updatePreview();
-      });
-    }
+  // Remove row handler
+  const removeBtn = rowElement.querySelector('.remove-row-btn');
+  removeBtn.addEventListener('click', () => {
+    rowElement.remove();
+    updatePreview();
+  });
+}
 
     // Format date string to Indonesian format: Kamis, 10 September 2026
     function formatIndonesianDate(dateString) {
@@ -411,19 +413,28 @@
       // 5. Mission Items / Blocks Filtered (Ignore completely empty rows)
       const blockRows = blockList.querySelectorAll('.block-row');
       let blocksFormattedText = '';
-
+      
       blockRows.forEach((row) => {
         const blokVal = row.querySelector('.input-blok').value.trim();
-        const jamVal = row.querySelector('.input-jam').value.trim();
-
-        // ABAIKAN JIKA KEDUA INPUTAN KOSONG ATAU SANGAT MINIMAL
-        if (!blokVal && !jamVal) {
-          return; // Skip/Abaikan
+        const jamMulaiVal = row.querySelector('.input-jam-mulai').value.trim();
+        const jamSelesaiVal = row.querySelector('.input-jam-selesai').value.trim();
+      
+        // Susun format jam
+        let jamVal = '';
+        if (jamMulaiVal || jamSelesaiVal) {
+          const displayMulai = jamMulaiVal || '...';
+          const displaySelesai = jamSelesaiVal || '...';
+          jamVal = `${displayMulai} - ${displaySelesai}`;
         }
 
+        // ABAIKAN JIKA SEMUA INPUT KOSONG
+        if (!blokVal && !jamMulaiVal && !jamSelesaiVal) {
+          return; // Skip/Abaikan
+        }
+      
         const displayBlok = blokVal || '[BLOK]';
         const displayJam = jamVal || '[Jam]';
-
+      
         blocksFormattedText += `${displayBlok} : ${aglText},\n${displayJam}\n\n`;
       });
 
@@ -501,9 +512,9 @@ ${blocksFormattedText}Terimakasih`;
       customDivContainer.classList.add('hidden');
       customDivInput.value = '';
       shortDivToggle.checked = false;
-
+    
       // Populate default items back
-      defaultData.forEach(item => addBlockRow(item.blok, item.jam));
+      defaultData.forEach(item => addBlockRow(item.blok, item.jamMulai, item.jamSelesai));
       updatePreview();
     }
   </script>
