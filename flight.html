@@ -442,19 +442,38 @@ ${blocksFormattedText}Terimakasih`;
 
     function copyToClipboard() {
       const textToCopy = rawOutput.value;
-      
-      const tempTextArea = document.createElement('textarea');
-      tempTextArea.value = textToCopy;
-      document.body.appendChild(tempTextArea);
-      tempTextArea.select();
-      
-      try {
-        document.execCommand('copy');
-        showToast();
-      } catch (err) {
-        console.error('Gagal menyalin teks: ', err);
-      } finally {
-        document.body.removeChild(tempTextArea);
+
+      // Metode 1: Menggunakan Modern Clipboard API (Lebih stabil dan direkomendasikan)
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(textToCopy)
+          .then(() => {
+            showToast();
+          })
+          .catch((err) => {
+            console.error('Gagal menyalin teks via Clipboard API: ', err);
+          });
+      } else {
+        // Metode 2: Fallback menggunakan execCommand untuk browser lama/tanpa HTTPS
+        const tempTextArea = document.createElement('textarea');
+        tempTextArea.value = textToCopy;
+    
+        // Pastikan textarea disembunyikan agar tidak merusak layout atau kehilangan fokus
+        tempTextArea.style.position = 'absolute';
+        tempTextArea.style.left = '-999999px';
+        tempTextArea.style.top = '-999999px';
+    
+        document.body.appendChild(tempTextArea);
+        tempTextArea.focus();
+        tempTextArea.select();
+    
+        try {
+          document.execCommand('copy');
+          showToast();
+        } catch (err) {
+          console.error('Gagal menyalin teks via execCommand: ', err);
+        } finally {
+          document.body.removeChild(tempTextArea);
+        }
       }
     }
 
