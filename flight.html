@@ -129,7 +129,7 @@
           <div class="sm:col-span-2 pt-2 border-t border-slate-700/40 flex items-center justify-between">
             <span class="text-xs text-slate-400">Singkat Penulisan Divisi (*DIV X SIL*)</span>
             <label class="relative inline-flex items-center cursor-pointer">
-              <input type="checkbox" id="shortDivToggle" class="sr-only peer" checked>
+              <input type="checkbox" id="shortDivToggle" class="sr-only peer">
               <div class="w-9 h-5 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-600"></div>
             </label>
           </div>
@@ -481,7 +481,7 @@ ${blocksFormattedText}Terimakasih`;
       globalAglInput.value = '50';
       customDivContainer.classList.add('hidden');
       customDivInput.value = '';
-      shortDivToggle.checked = true;
+      shortDivToggle.checked = false;
 
       // Populate default items back
       defaultData.forEach(item => addBlockRow(item.blok, item.jam));
