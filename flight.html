@@ -110,11 +110,11 @@
           <div>
             <label for="divisionSelect" class="block text-xs font-medium text-slate-300 mb-1.5">Divisi</label>
             <select id="divisionSelect" class="w-full bg-slate-900/80 border border-slate-700/60 rounded-xl px-3 py-2 text-xs text-slate-200 focus:ring-2 focus:ring-brand-500 focus:outline-none transition">
-              <option value="DIVISI BOGOWONTO SIL">DIVISI BOGOWONTO SIL (DIV BOGOWONTO SIL)</option>
-              <option value="DIVISI 1 SIL">DIVISI 1 SIL (DIV 1 SIL)</option>
-              <option value="DIVISI 2 SIL">DIVISI 2 SIL (DIV 2 SIL)</option>
-              <option value="DIVISI 3 SIL">DIVISI 3 SIL (DIV 3 SIL)</option>
-              <option value="DIVISI 5 SIL" selected>DIVISI 5 SIL (DIV 5 SIL)</option>
+              <option value="Divisi BOGOWONTO SIL">Divisi BOGOWONTO SIL (DIV BOGOWONTO SIL)</option>
+              <option value="Divisi 1 SIL">Divisi 1 SIL (DIV 1 SIL)</option>
+              <option value="Divisi 2 SIL">Divisi 2 SIL (DIV 2 SIL)</option>
+              <option value="Divisi 3 SIL">Divisi 3 SIL (DIV 3 SIL)</option>
+              <option value="Divisi 5 SIL" selected>Divisi 5 SIL (DIV 5 SIL)</option>
               <option value="custom">-- Input Custom Divisi --</option>
             </select>
           </div>
@@ -395,15 +395,15 @@
       // 3. Format Divisi
       let divisionText = '';
       if (divisionSelect.value === 'custom') {
-        divisionText = customDivInput.value.trim() || 'DIVISI SIL';
+        divisionText = customDivInput.value.trim() || 'Divisi SIL';
       } else {
         divisionText = divisionSelect.value;
       }
 
       // If shorten toggle active and matching "DIVISI X SIL", convert to "DIV X SIL"
       if (shortDivToggle.checked) {
-        divisionText = divisionText.replace('DIVISI BOGOWONTO SIL', 'DIV BOGOWONTO SIL');
-        divisionText = divisionText.replace('DIVISI ', 'DIV ');
+        divisionText = divisionText.replace('Divisi BOGOWONTO SIL', 'DIV BOGOWONTO SIL');
+        divisionText = divisionText.replace('Divisi ', 'DIV ');
       }
 
       // 4. Global AGL Value
@@ -507,7 +507,7 @@ ${blocksFormattedText}Terimakasih`;
     function resetForm() {
       blockList.innerHTML = '';
       updateSalamButtons('Pagi');
-      divisionSelect.value = 'DIVISI 5 SIL';
+      divisionSelect.value = 'Divisi 5 SIL';
       globalAglInput.value = '50';
       customDivContainer.classList.add('hidden');
       customDivInput.value = '';
